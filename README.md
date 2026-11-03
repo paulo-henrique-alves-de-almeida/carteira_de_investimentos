@@ -1,8 +1,9 @@
 <div align="center">
 
-# 💼 Carteira de Investimentos em C
+<img src="assets/banner.jpg" alt="Carteira de Investimentos em C" width="100%">
 
-**Aplicação de console para cadastrar, acompanhar e analisar uma carteira de investimentos, com persistência em arquivo texto e um simulador educativo de renda fixa.**
+<br>
+<br>
 
 ![Linguagem](https://img.shields.io/badge/linguagem-C99-00599C?logo=c&logoColor=white)
 ![Compilador](https://img.shields.io/badge/compilador-GCC%20%7C%20MinGW-A42E2B?logo=gnu&logoColor=white)
@@ -11,20 +12,22 @@
 ![Versão](https://img.shields.io/badge/vers%C3%A3o-3.0-success)
 ![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-green)
 
-[Sobre](#-sobre) •
-[Funcionalidades](#-funcionalidades) •
-[Como executar](#-como-executar) •
-[Arquitetura](#-arquitetura) •
-[Persistência](#-persistência-de-dados) •
-[Cálculos](#-regras-de-cálculo) •
-[Roadmap](#-roadmap) •
-[Licença](#-licença)
+**Aplicação de console para cadastrar, acompanhar e analisar uma carteira de investimentos, com persistência em arquivo texto e um simulador educativo de renda fixa.**
+
+[Sobre](#sobre) •
+[Funcionalidades](#funcionalidades) •
+[Como executar](#como-executar) •
+[Arquitetura](#arquitetura) •
+[Persistência](#persistência-de-dados) •
+[Cálculos](#regras-de-cálculo) •
+[Roadmap](#roadmap) •
+[Licença](#licença)
 
 </div>
 
 ---
 
-## 📌 Sobre
+## Sobre
 
 A **Carteira de Investimentos** é um projeto acadêmico (checkpoint) desenvolvido em **linguagem C** que permite registrar ativos financeiros — ações, títulos de renda fixa, fundos etc. — e acompanhar seu desempenho: valor de mercado, rentabilidade individual, rentabilidade geral ponderada e classificação de risco.
 
@@ -37,13 +40,13 @@ O projeto exercita conceitos fundamentais de programação estruturada:
 - **validação robusta de entrada** do usuário;
 - **ordenação** com algoritmo *Quicksort* implementado manualmente.
 
-### 🌍 Impacto social — ODS 8.10
+### Impacto social — ODS 8.10
 
 O módulo de simulação apresenta alternativas de investimento (Poupança, Tesouro Selic e CDB) em linguagem simples, ajudando a compreender **rentabilidade, risco e liquidez**. A proposta se alinha à meta **8.10 dos Objetivos de Desenvolvimento Sustentável da ONU**, que incentiva a ampliação do acesso a serviços financeiros para todas as pessoas.
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 | Opção | Funcionalidade | Descrição |
 |:-----:|----------------|-----------|
@@ -56,7 +59,7 @@ O módulo de simulação apresenta alternativas de investimento (Poupança, Teso
 | `7` | **Relatório final** ¹ | Ranking por rentabilidade, valor total, rentabilidade geral e lucro/prejuízo. |
 | `0` | **Salvar e sair** | Grava a carteira em disco e encerra o programa. |
 
-> ¹ As opções 5, 6 e 7 já estão implementadas em `modulo.c` e tratadas no `switch` de `main.c`, mas ainda **não aparecem no menu** e são bloqueadas por `lerOpcao()` (que aceita apenas `0` a `4`). Veja o [Roadmap](#-roadmap).
+> ¹ As opções 5, 6 e 7 já estão implementadas em `modulo.c` e tratadas no `switch` de `main.c`, mas ainda **não aparecem no menu** e são bloqueadas por `lerOpcao()` (que aceita apenas `0` a `4`). Veja o [Roadmap](#roadmap).
 
 ### Validações de entrada
 
@@ -69,7 +72,7 @@ O módulo de simulação apresenta alternativas de investimento (Poupança, Teso
 
 ---
 
-## 🚀 Como executar
+## Como executar
 
 ### Pré-requisitos
 
@@ -108,7 +111,8 @@ Abra o arquivo `carteira_de_investimentos.dev` e use **Executar → Compilar & E
 programa.exe      # Windows
 ```
 
-> ⚠️ **Execute a partir da raiz do projeto.** O programa usa o caminho relativo `data/carteira.txt`; a pasta `data/` precisa existir no diretório de trabalho.
+> [!IMPORTANT]
+> **Execute a partir da raiz do projeto.** O programa usa o caminho relativo `data/carteira.txt`; a pasta `data/` precisa existir no diretório de trabalho.
 
 ### Exemplo de uso
 
@@ -138,10 +142,12 @@ Ativo cadastrado com sucesso!
 
 ---
 
-## 🏗 Arquitetura
+## Arquitetura
 
 ```text
 carteira_de_investimentos/
+├── assets/
+│   └── banner.jpg                # Imagem de capa do README
 ├── include/
 │   ├── funcoes.h                 # Protótipos de entrada, validação e interface
 │   └── modulo.h                  # Struct Ativo, constantes e protótipos da carteira
@@ -194,7 +200,7 @@ typedef struct {
 
 ---
 
-## 💾 Persistência de dados
+## Persistência de dados
 
 Os ativos são gravados em `data/carteira.txt`, **um ativo por linha**, com campos separados por ponto e vírgula:
 
@@ -215,11 +221,12 @@ TESOURO SELIC;Renda Fixa;10;10600,00;10850,00
 - **Gravação** — após cada cadastro, após ordenar/gerar relatório e ao sair (opção `0`).
 - **Registros inválidos** (quantidade negativa, preço de compra ≤ 0 ou preço atual < 0) são ignorados na leitura, com aviso.
 
-> ℹ️ **Separador decimal:** o programa chama `setlocale(LC_ALL, "")`, então `fscanf`/`fprintf` seguem a localidade do sistema. Em ambientes pt-BR, os valores são gravados com **vírgula** (`28,00`); em outras localidades, com **ponto**. Na digitação pelo teclado, use o separador da sua localidade (a mensagem do programa sugere ponto).
+> [!NOTE]
+> **Separador decimal:** o programa chama `setlocale(LC_ALL, "")`, então `fscanf`/`fprintf` seguem a localidade do sistema. Em ambientes pt-BR, os valores são gravados com **vírgula** (`28,00`); em outras localidades, com **ponto**. Na digitação pelo teclado, use o separador da sua localidade (a mensagem do programa sugere ponto).
 
 ---
 
-## 🧮 Regras de cálculo
+## Regras de cálculo
 
 | Métrica | Fórmula |
 |---------|---------|
@@ -238,20 +245,21 @@ Atribuída a cada ativo com base na sua rentabilidade:
 
 | Rentabilidade | Classificação |
 |---------------|:-------------:|
-| abaixo de −10% | 🔴 **Alto** |
-| de −10% até 0% (exclusive) | 🟠 **Atenção** |
-| exatamente 0% | ⚪ **Neutro** |
-| acima de 0% | 🟢 **Positivo** |
+| abaixo de −10% | **Alto** |
+| de −10% até 0% (exclusive) | **Atenção** |
+| exatamente 0% | **Neutro** |
+| acima de 0% | **Positivo** |
 
 ### Ordenação
 
 A carteira é ordenada por rentabilidade **decrescente** com um **Quicksort** recursivo (pivô central, partição de Hoare), implementado em `modulo.c` — complexidade média `O(n log n)`.
 
-> ⚖️ **Aviso:** as taxas do simulador são **fixas e ilustrativas**. Não refletem as taxas vigentes de mercado e **não constituem recomendação de investimento**.
+> [!WARNING]
+> as taxas do simulador são **fixas e ilustrativas**. Não refletem as taxas vigentes de mercado e **não constituem recomendação de investimento**.
 
 ---
 
-## 🗺 Roadmap
+## Roadmap
 
 - [ ] Exibir as opções `5`, `6` e `7` no menu e ampliar o intervalo aceito por `lerOpcao()` para `0–7`.
 - [ ] Padronizar a codificação dos fontes em **UTF-8** (alguns arquivos estão em Latin-1/Windows-1252, o que gera caracteres corrompidos em terminais UTF-8).
@@ -263,7 +271,7 @@ A carteira é ordenada por rentabilidade **decrescente** com um **Quicksort** re
 
 ---
 
-## 🤝 Contribuindo
+## Contribuindo
 
 1. Faça um *fork* do projeto.
 2. Crie uma branch: `git checkout -b feature/minha-melhoria`.
@@ -275,7 +283,7 @@ Mantenha o padrão do código: nomes em português, *camelCase* e compilação s
 
 ---
 
-## 👤 Autor
+## Autor
 
 **Paulo Henrique Alves de Almeida**
 
@@ -283,6 +291,6 @@ Mantenha o padrão do código: nomes em português, *camelCase* e compilação s
 
 ---
 
-## 📄 Licença
+## Licença
 
 Distribuído sob a licença **MIT**. Consulte o arquivo [`LICENSE`](LICENSE) para mais detalhes.
