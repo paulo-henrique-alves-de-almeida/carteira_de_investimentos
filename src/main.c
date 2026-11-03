@@ -4,7 +4,8 @@
 #include "funcoes.h"
 #include "modulo.h"
 
-int main(void) {
+int main(void)
+{
     Ativo carteira[MAX_ATIVOS];
     int quantidadeAtivos = 0;
     int opcao;
@@ -13,55 +14,74 @@ int main(void) {
 
     carregarCarteira(carteira, &quantidadeAtivos);
 
-    do {
+    do
+    {
         exibirMenu();
         opcao = lerOpcao();
 
-        switch (opcao) {
-            case 1:
-                cadastrarAtivo(carteira, &quantidadeAtivos);
+        switch (opcao)
+        {
+        case 1:
+            cadastrarAtivo(carteira, &quantidadeAtivos);
+            pausar();
+            break;
+
+        case 2:
+            listarAtivos(carteira, quantidadeAtivos);
+            pausar();
+            break;
+
+        case 3:
+            imprimirTitulo();
+
+            if (quantidadeAtivos == 0)
+            {
+                printf("A carteira est√° vazia. Cadastre um ativo primeiro.\n\n");
                 pausar();
-                break;
+                continue;
+            }
 
-            case 2:
-                listarAtivos(carteira, quantidadeAtivos);
+            printf("Valor total da carteira: R$ %.2f\n\n", calcularValorTotal(carteira, quantidadeAtivos));
+            pausar();
+            break;
+
+        case 4:
+            imprimirTitulo();
+
+            if (quantidadeAtivos == 0)
+            {
+                printf("A carteira est√° vazia. Cadastre um ativo primeiro.\n\n");
                 pausar();
-                break;
+                continue;
+            }
 
-            case 3:
-            	imprimirTitulo();
-            	
-                if (quantidadeAtivos == 0) {
-                    printf("A carteira est· vazia. Cadastre um ativo primeiro.\n\n");
-                    pausar();
-                    continue;
-                }
-                
-				printf("Valor total da carteira: R$ %.2f\n\n", calcularValorTotal(carteira, quantidadeAtivos));
-                pausar();
-                break;
+            printf("Rentabilidade geral da carteira: %.2f%%\n\n", calcularRentabilidadeGeral(carteira, quantidadeAtivos));
+            pausar();
+            break;
 
-            case 4:
-            	imprimirTitulo();
-            	
-                if (quantidadeAtivos == 0) {
-                    printf("A carteira est· vazia. Cadastre um ativo primeiro.\n\n");
-                    pausar();
-                    continue;
-                }
-                
-				printf("Rentabilidade geral da carteira: %.2f%%\n\n", calcularRentabilidadeGeral(carteira, quantidadeAtivos));
-				pausar();
-                break;
+        case 5:
+            ordenarCarteiraPorRentabilidade(carteira, quantidadeAtivos);
+            pausar();
+            break;
 
-            case 0:
-                salvarCarteira(carteira, quantidadeAtivos);
-                sair();
-                break;
+        case 6:
+            simularInvestimentos(carteira, quantidadeAtivos);
+            pausar();
+            break;
 
-            default:
-                printf("\nOpÁ„o inv·lida. Digite 0, 1, 2, 3 ou 4.\n\n");
-                pausar();
+        case 7:
+            gerarRelatorioFinal(carteira, quantidadeAtivos);
+            pausar();
+            break;
+
+        case 0:
+            salvarCarteira(carteira, quantidadeAtivos);
+            sair();
+            break;
+
+        default:
+            printf("\nOpcao invalida. Digite uma opcao entre 0 e 7.\n\n");
+            pausar();
         }
     } while (opcao != 0);
 

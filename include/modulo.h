@@ -6,6 +6,10 @@
 #define MAX_ATIVOS 100
 #define MAX_INTEIRO 2147483647
 #define ARQUIVO_CARTEIRA "data/carteira.txt"
+#define MESES_SIMULACAO 12
+#define TAXA_POUPANCA 0.0050
+#define TAXA_TESOURO_SELIC 0.0080
+#define TAXA_CDB 0.0090
 
 typedef struct {
     char nome[TAM_NOME];
@@ -22,6 +26,9 @@ void listarAtivos(Ativo carteira[], int quantidadeAtivos);
 double calcularValorTotal(Ativo carteira[], int quantidadeAtivos);
 double calcularRentabilidadeAtivo(Ativo ativo);
 double calcularRentabilidadeGeral(Ativo carteira[], int quantidadeAtivos);
+void ordenarCarteiraPorRentabilidade(Ativo carteira[], int quantidadeAtivos);
+void simularInvestimentos(Ativo carteira[], int quantidadeAtivos);
+void gerarRelatorioFinal(Ativo carteira[], int quantidadeAtivos);
 char *classificarRisco(double rentabilidade);
 
 #endif
