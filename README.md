@@ -252,10 +252,16 @@ PETR4;Ação;100;28,00;31,50
 
 ## 7. Desenvolvedores
 
-| Desenvolvedor | GitHub |
-|------------|--------|
-| Paulo Henrique Alves de Almeida | [@paulo-henrique-alves-de-almeida](https://github.com/paulo-henrique-alves-de-almeida) |
-| Petterson Augusto Papa de Souza | [@pettersonpapa](https://github.com/pettersonpapa) |
+Projeto desenvolvido em grupo por 6 alunos:
+
+| Nº | Desenvolvedor |
+|:--:|---------------|
+| 1 | Paulo Henrique Alves de Almeida |
+| 2 | Murilo Roselini |
+| 3 | Raphael Souza Araujo Barbosa |
+| 4 | Matheus Avanzo dos Santos |
+| 5 | Petterson Augusto Papa de Souza |
+| 6 | Pedro Henrique Mello Rodrigues |
 
 ---
 
