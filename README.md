@@ -115,8 +115,6 @@ Taxas mensais usadas no simulador: Poupança **0,50%**, Tesouro Selic **0,80%** 
 
 ```text
 carteira_de_investimentos/
-├── assets/
-│   └── banner.jpg                # Imagem de capa do README
 ├── include/
 │   ├── funcoes.h                 # Protótipos de entrada, validação e interface
 │   └── modulo.h                  # Struct Ativo, constantes e protótipos da carteira
