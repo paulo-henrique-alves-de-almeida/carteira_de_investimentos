@@ -15,8 +15,6 @@
 void limparTela() {
 	#ifdef _WIN32
 	    system("cls");
-	    SetConsoleOutputCP(1252);
-	    SetConsoleCP(1252);
 	#else
 	    system("clear");
 	#endif
