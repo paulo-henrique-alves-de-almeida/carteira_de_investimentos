@@ -1,10 +1,5 @@
 <div align="center">
 
-<img src="assets/banner.jpg" alt="Carteira de Investimentos em C" width="100%">
-
-<br>
-<br>
-
 ![Linguagem](https://img.shields.io/badge/linguagem-C99-00599C?logo=c&logoColor=white)
 ![Compilador](https://img.shields.io/badge/compilador-GCC%20%7C%20MinGW-A42E2B?logo=gnu&logoColor=white)
 ![IDE](https://img.shields.io/badge/IDE-Dev--C%2B%2B-4B8BBE)
@@ -68,9 +63,6 @@ O simulador apresenta alternativas de investimento em linguagem simples, ajudand
 | `6` | **Simulador educativo** ¹ | Projeta o valor da carteira em 12 meses na Poupança, Tesouro Selic e CDB. |
 | `7` | **Relatório final** ¹ | Ranking por rentabilidade, valor total, rentabilidade geral e lucro/prejuízo. |
 | `0` | **Salvar e sair** | Grava a carteira em disco e encerra o programa. |
-
-> [!NOTE]
-> ¹ As opções 5, 6 e 7 já estão implementadas em `modulo.c` e tratadas no `switch` de `main.c`, mas ainda **não aparecem no menu** e são bloqueadas por `lerOpcao()`, que aceita apenas de `0` a `4`.
 
 ### Classificação de risco
 
