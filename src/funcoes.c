@@ -6,11 +6,17 @@
 #include <errno.h>
 #include <math.h>
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 #include "funcoes.h"
 
 void limparTela() {
 	#ifdef _WIN32
 	    system("cls");
+	    SetConsoleOutputCP(1252);
+	    SetConsoleCP(1252);
 	#else
 	    system("clear");
 	#endif
@@ -53,9 +59,9 @@ void lerTexto(char mensagem[], char texto[], int tamanho) {
 
         texto[strcspn(texto, "\r\n")] = '\0';
 
-        // o formato do arquivo usa ponto e vírgula como separador
+        // o formato do arquivo usa ponto e virgula como separador
         if (strchr(texto, ';') != NULL) {
-            printf("Não use ponto e virgula (;) no texto.\n");
+            printf("N\343o use ponto e v\355rgula (;) no texto.\n");
             continue;
         }
 
@@ -71,7 +77,7 @@ void lerTexto(char mensagem[], char texto[], int tamanho) {
             return;
         }
 
-        printf("O campo não pode ficar vazio.\n");
+        printf("O campo n\343o pode ficar vazio.\n");
     }
 }
 
@@ -90,9 +96,9 @@ double lerNumero(char mensagem[], bool aceitaZero) {
         }
 
         if (aceitaZero) {
-            printf("Digite um número maior ou igual a zero, usando ponto para decimais.\n");
+            printf("Digite um n\372mero maior ou igual a zero, usando ponto para decimais.\n");
         } else {
-            printf("Digite um número maior que zero, usando ponto para decimais.\n");
+            printf("Digite um n\372mero maior que zero, usando ponto para decimais.\n");
         }
     }
 }
@@ -109,7 +115,7 @@ int lerInteiro(char mensagem[], int minimo, int maximo) {
             return valor;
         }
 
-        printf("Digite um número inteiro entre %d e %d.\n", minimo, maximo);
+        printf("Digite um n\372mero inteiro entre %d e %d.\n", minimo, maximo);
     }
 }
 
@@ -128,9 +134,9 @@ void exibirMenu() {
     printf("[2] Listar ativos\n");
     printf("[3] Valor total da carteira\n");
     printf("[4] Rentabilidade geral\n");
-    printf("[5] Ordernar carteira por rentabilidade\n");
+    printf("[5] Ordenar carteira por rentabilidade\n");
     printf("[6] Simulador educativo\n");
-    printf("[7] Relatório final\n");
+    printf("[7] Relat\363rio final\n");
     printf("[0] Salvar e sair\n\n");
 }
 
@@ -139,7 +145,7 @@ int lerOpcao() {
     char extra;
     int valor;
     
-	lerTexto("Opção: ", entrada, sizeof(entrada));
+	lerTexto("Op\347\343o: ", entrada, sizeof(entrada));
 	
 	if (sscanf(entrada, "%d %c", &valor, &extra) == 1 && valor >= 0 && valor <= 7) {
         return valor;

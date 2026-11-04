@@ -36,6 +36,12 @@ Do ponto de vista acadêmico, o projeto aplica conceitos fundamentais de program
 - **validação de entrada** do usuário;
 - **ordenação** com algoritmo *Quicksort* implementado manualmente.
 
+### Demonstração em vídeo
+
+O vídeo apresenta o código completo e o funcionamento do sistema em aproximadamente **2 minutos**:
+
+[Assistir à demonstração da Carteira de Investimentos no YouTube](https://youtu.be/DtPJ8nQRFoY)
+
 ### Impacto social — ODS 8.10
 
 O simulador apresenta alternativas de investimento em linguagem simples, ajudando a compreender **rentabilidade, risco e liquidez**. A proposta se alinha à meta **8.10 dos Objetivos de Desenvolvimento Sustentável da ONU**, que incentiva a ampliação do acesso a serviços financeiros para todas as pessoas.
@@ -231,6 +237,39 @@ Ativo cadastrado com sucesso!
 
 > [!NOTE]
 > O programa segue a configuração regional do sistema (`setlocale`). Em computadores configurados em português, os valores decimais podem ser gravados com **vírgula** no arquivo (`28,00`). Se a digitação com ponto for recusada, use vírgula.
+
+### Acentos no código e no terminal
+
+Durante os testes no Windows com o Dev-C++, os acentos apareceram como símbolos estranhos devido a diferenças de codificação entre os arquivos, a compilação e a exibição no console. Para evitar que o problema volte ao salvar os arquivos no editor, as letras acentuadas dos textos foram representadas por **sequências de escape em octal** dentro das aspas.
+
+Essas sequências representam os bytes dos caracteres na codificação **Windows-1252**, usada na configuração de entrada e saída do console no Windows. Elas alteram apenas a representação dos textos no código-fonte, sem modificar as funções ou os cálculos do programa.
+
+Todos os escapes utilizados nos textos do projeto são:
+
+| Escape no código | Caractere exibido |
+|------------------|:-----------------:|
+| `\307` | Ç |
+| `\323` | Ó |
+| `\341` | á |
+| `\343` | ã |
+| `\347` | ç |
+| `\351` | é |
+| `\352` | ê |
+| `\355` | í |
+| `\363` | ó |
+| `\372` | ú |
+
+Por exemplo:
+
+```c
+printf("Op\347\343o: ");       // Exibe: Opção:
+printf("Pre\347o");           // Exibe: Preço
+printf("Relat\363rio");       // Exibe: Relatório
+printf("POUPAN\307A");        // Exibe: POUPANÇA
+printf("RELAT\323RIO FINAL"); // Exibe: RELATÓRIO FINAL
+```
+
+A configuração de compilação também foi registrada no projeto do Dev-C++. Depois de atualizar os arquivos, feche e reabra o projeto na IDE antes de recompilar, para carregar a versão salva no disco. Em terminais Linux/macOS configurados em UTF-8, os bytes Windows-1252 precisam de adaptação para que os acentos sejam exibidos corretamente.
 
 ### Formato do arquivo de dados
 

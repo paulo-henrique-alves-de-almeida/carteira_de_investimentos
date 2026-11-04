@@ -1,6 +1,10 @@
 #include <locale.h>
 #include <stdio.h>
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 #include "funcoes.h"
 #include "modulo.h"
 
@@ -11,6 +15,12 @@ int main(void)
     int opcao;
 
     setlocale(LC_ALL, "");
+
+#ifdef _WIN32
+    // Acentos em escapes numericos para evitar conversao ao salvar no Dev-C++.
+    SetConsoleOutputCP(1252);
+    SetConsoleCP(1252);
+#endif
 
     carregarCarteira(carteira, &quantidadeAtivos);
 
@@ -33,7 +43,7 @@ int main(void)
             imprimirTitulo();
 
             if (quantidadeAtivos == 0) {
-                printf("A carteira está vazia. Cadastre um ativo primeiro.\n\n");
+                printf("A carteira est\341 vazia. Cadastre um ativo primeiro.\n\n");
                 pausar();
                 continue;
             }
@@ -46,7 +56,7 @@ int main(void)
             imprimirTitulo();
 
             if (quantidadeAtivos == 0) {
-                printf("A carteira está vazia. Cadastre um ativo primeiro.\n\n");
+                printf("A carteira est\341 vazia. Cadastre um ativo primeiro.\n\n");
                 pausar();
                 continue;
             }
@@ -76,7 +86,7 @@ int main(void)
             break;
 
         default:
-            printf("\nOpção inválida. Digite uma opção entre 0 e 7.\n\n");
+            printf("\nOp\347\343o inv\341lida. Digite uma op\347\343o entre 0 e 7.\n\n");
             pausar();
         }
     } while (opcao != 0);

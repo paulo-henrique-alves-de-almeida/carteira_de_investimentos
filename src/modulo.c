@@ -13,9 +13,9 @@ void carregarCarteira(Ativo carteira[], int *quantidadeAtivos) {
     arquivo = fopen(ARQUIVO_CARTEIRA, "r");
 
     if (arquivo == NULL) {
-        // na primeira execução, o arquivo pode ainda não existir
-        printf("Aviso: não foi possível abrir %s para leitura.\n", ARQUIVO_CARTEIRA);
-        printf("A carteira será iniciada vazia e o arquivo será criado ao salvar.\n\n");
+        // na primeira execucao, o arquivo pode ainda nao existir
+        printf("Aviso: n\343o foi poss\355vel abrir %s para leitura.\n", ARQUIVO_CARTEIRA);
+        printf("A carteira ser\341 iniciada vazia e o arquivo ser\341 criado ao salvar.\n\n");
         return;
     }
 
@@ -23,12 +23,12 @@ void carregarCarteira(Ativo carteira[], int *quantidadeAtivos) {
         resultado = fscanf(arquivo, " %99[^;];%49[^;];%d;%lf;%lf", ativo.nome, ativo.categoria, &ativo.quantidade, &ativo.precoCompra, &ativo.precoAtual);
 
         if (resultado != 5) {
-            printf("Aviso: registro inválido encontrado em %s.\n\n", ARQUIVO_CARTEIRA);
+            printf("Aviso: registro inv\341lido encontrado em %s.\n\n", ARQUIVO_CARTEIRA);
             break;
         }
 
         if (ativo.quantidade < 0 || ativo.precoCompra <= 0 || ativo.precoAtual < 0) {
-            printf("Aviso: ativo inválido ignorado no arquivo.\n\n");
+            printf("Aviso: ativo inv\341lido ignorado no arquivo.\n\n");
             continue;
         }
 
@@ -49,7 +49,7 @@ void salvarCarteira(Ativo carteira[], int quantidadeAtivos) {
 
     arquivo = fopen(ARQUIVO_CARTEIRA, "w");
     if (arquivo == NULL) {
-        printf("\nErro: não foi possível abrir realizar a gravação dos dados.\n\n");
+        printf("\nErro: n\343o foi poss\355vel realizar a grava\347\343o dos dados.\n\n");
         return;
     }
 
@@ -75,14 +75,14 @@ void cadastrarAtivo(Ativo carteira[], int *quantidadeAtivos) {
     lerTexto("Nome: ", novoAtivo.nome, TAM_NOME);
     lerTexto("Categoria: ", novoAtivo.categoria, TAM_CATEGORIA);
     novoAtivo.quantidade = lerInteiro("Quantidade: ", 1, MAX_INTEIRO);
-    novoAtivo.precoCompra = lerNumero("Preço de compra por unidade: ", false);
-    novoAtivo.precoAtual = lerNumero("Preço atual por unidade: ", true);
+    novoAtivo.precoCompra = lerNumero("Pre\347o de compra por unidade: ", false);
+    novoAtivo.precoAtual = lerNumero("Pre\347o atual por unidade: ", true);
 
     carteira[*quantidadeAtivos] = novoAtivo;
     (*quantidadeAtivos)++;
 
     salvarCarteira(carteira, *quantidadeAtivos);
-    printf("\nAtivo cadastrado com sucesso!\n\n");
+    printf("\nativo cadastrado com sucesso!\n\n");
 }
 
 double calcularRentabilidadeAtivo(Ativo ativo) {
@@ -182,18 +182,18 @@ void simularInvestimentos(Ativo carteira[], int quantidadeAtivos) {
     valorCdb = simularValor(valorInicial, TAXA_CDB);
 
     printf("E se os R$ %.2f da sua carteira ficassem\n", valorInicial);
-    printf("investidos por %d meses em cada opção?\n\n", MESES_SIMULACAO);
-    printf("POUPANÇA       (%.2f%%/mês): R$ %.2f (+R$ %.2f)\n", TAXA_POUPANCA * 100.0, valorPoupanca, valorPoupanca - valorInicial);
-    printf("TESOURO SELIC  (%.2f%%/mês): R$ %.2f (+R$ %.2f)\n", TAXA_TESOURO_SELIC * 100.0, valorTesouro, valorTesouro - valorInicial);
-    printf("CDB            (%.2f%%/mês): R$ %.2f (+R$ %.2f)\n\n", TAXA_CDB * 100.0, valorCdb, valorCdb - valorInicial);
+    printf("investidos por %d meses em cada op\347\343o?\n\n", MESES_SIMULACAO);
+    printf("POUPAN\307A       (%.2f%%/m\352s): R$ %.2f (+R$ %.2f)\n", TAXA_POUPANCA * 100.0, valorPoupanca, valorPoupanca - valorInicial);
+    printf("TESOURO SELIC  (%.2f%%/m\352s): R$ %.2f (+R$ %.2f)\n", TAXA_TESOURO_SELIC * 100.0, valorTesouro, valorTesouro - valorInicial);
+    printf("CDB            (%.2f%%/m\352s): R$ %.2f (+R$ %.2f)\n\n", TAXA_CDB * 100.0, valorCdb, valorCdb - valorInicial);
 
     printf("O que isso significa?\n");
-    printf("- Poupança: é conhecida e costuma render menos.\n");
-    printf("- Tesouro Selic: é um título público de baixo risco e permite\n");
-    printf("  investir valores acessíveis. Confira as regras vigentes.\n");
+    printf("- Poupan\347a: \351 conhecida e costuma render menos.\n");
+    printf("- Tesouro Selic: \351 um t\355tulo p\372blico de baixo risco e permite\n");
+    printf("  investir valores acess\355veis. Confira as regras vigentes.\n");
     printf("- CDB: pode render mais, tem cobertura do FGC dentro dos limites\n");
-    printf("  aplicáveis, mas alguns produtos exigem esperar até o vencimento.\n");
-    printf("As taxas acima são ilustrativas e não são recomendação de investimento.\n\n");
+    printf("  aplic\341veis, mas alguns produtos exigem esperar at\351 o vencimento.\n");
+    printf("As taxas acima s\343o ilustrativas e n\343o s\343o recomenda\347\343o de investimento.\n\n");
 }
 
 void gerarRelatorioFinal(Ativo carteira[], int quantidadeAtivos) {
@@ -203,7 +203,7 @@ void gerarRelatorioFinal(Ativo carteira[], int quantidadeAtivos) {
     int i;
 
     limparTela();
-    printf("================ RELATÓRIO FINAL ================\n\n");
+    printf("================ RELAT\323RIO FINAL ================\n\n");
 
     if (quantidadeAtivos == 0) {
         printf("Nenhum ativo cadastrado.\n\n");
@@ -228,13 +228,13 @@ void gerarRelatorioFinal(Ativo carteira[], int quantidadeAtivos) {
 
     printf("\nValor total da carteira: R$ %.2f\n", valorAtualTotal);
     printf("Rentabilidade geral: %.2f%%\n", calcularRentabilidadeGeral(carteira, quantidadeAtivos));
-    printf("Lucro/prejuizo total: R$ %.2f\n", lucroPrejuizo);
+    printf("Lucro/preju\355zo total: R$ %.2f\n", lucroPrejuizo);
 
     printf("\nImpacto social\n");
     printf("O simulador apresenta alternativas de investimento em linguagem simples,\n");
     printf("ajudando mais pessoas a compreender rentabilidade, risco e liquidez.\n");
-    printf("Assim, contribui para a inclusão financeira relacionada ao ODS 8.10 da ONU,\n");
-    printf("que incentiva o acesso a serviços financeiros para todas as pessoas.\n\n");
+    printf("Assim, contribui para a inclus\343o financeira relacionada ao ODS 8.10 da ONU,\n");
+    printf("que incentiva o acesso a servi\347os financeiros para todas as pessoas.\n\n");
 
     salvarCarteira(carteira, quantidadeAtivos);
 }
@@ -245,7 +245,7 @@ char *classificarRisco(double rentabilidade) {
     }
 
     if (rentabilidade < 0.0) {
-        return "Atenção";
+        return "Aten\347\343o";
     }
 
     if (rentabilidade == 0.0) {
@@ -274,7 +274,7 @@ void listarAtivos(Ativo carteira[], int quantidadeAtivos) {
 
         printf("%d. %s - %s - %d unidades - R$ %.2f\n", i + 1, carteira[i].nome, carteira[i].categoria, carteira[i].quantidade, carteira[i].precoAtual);
         printf("Valor atual: R$ %.2f\nRentabilidade: %.2f%%\n", valorAtual, rentabilidade);
-        printf("Classificação de risco: %s\n\n", classificarRisco(rentabilidade));
+        printf("Classifica\347\343o de risco: %s\n\n", classificarRisco(rentabilidade));
     }
 
 	printf("==================================================\n");
