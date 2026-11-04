@@ -14,13 +14,11 @@ int main(void)
 
     carregarCarteira(carteira, &quantidadeAtivos);
 
-    do
-    {
+    do {
         exibirMenu();
         opcao = lerOpcao();
 
-        switch (opcao)
-        {
+        switch (opcao) {
         case 1:
             cadastrarAtivo(carteira, &quantidadeAtivos);
             pausar();
@@ -34,9 +32,8 @@ int main(void)
         case 3:
             imprimirTitulo();
 
-            if (quantidadeAtivos == 0)
-            {
-                printf("A carteira estÃ¡ vazia. Cadastre um ativo primeiro.\n\n");
+            if (quantidadeAtivos == 0) {
+                printf("A carteira está vazia. Cadastre um ativo primeiro.\n\n");
                 pausar();
                 continue;
             }
@@ -48,9 +45,8 @@ int main(void)
         case 4:
             imprimirTitulo();
 
-            if (quantidadeAtivos == 0)
-            {
-                printf("A carteira estÃ¡ vazia. Cadastre um ativo primeiro.\n\n");
+            if (quantidadeAtivos == 0) {
+                printf("A carteira está vazia. Cadastre um ativo primeiro.\n\n");
                 pausar();
                 continue;
             }
@@ -80,7 +76,7 @@ int main(void)
             break;
 
         default:
-            printf("\nOpcao invalida. Digite uma opcao entre 0 e 7.\n\n");
+            printf("\nOpção inválida. Digite uma opção entre 0 e 7.\n\n");
             pausar();
         }
     } while (opcao != 0);

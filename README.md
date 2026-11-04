@@ -4,7 +4,7 @@
 ![Compilador](https://img.shields.io/badge/compilador-GCC%20%7C%20MinGW-A42E2B?logo=gnu&logoColor=white)
 ![IDE](https://img.shields.io/badge/IDE-Dev--C%2B%2B-4B8BBE)
 ![Plataforma](https://img.shields.io/badge/plataforma-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)
-![Versão](https://img.shields.io/badge/vers%C3%A3o-3.0-success)
+![Versão](https://img.shields.io/badge/vers%C3%A3o-3.1-success)
 ![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-green)
 
 **Aplicação de console para cadastrar, acompanhar e analisar uma carteira de investimentos, com persistência em arquivo texto e um simulador educativo de renda fixa.**

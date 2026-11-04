@@ -128,6 +128,9 @@ void exibirMenu() {
     printf("[2] Listar ativos\n");
     printf("[3] Valor total da carteira\n");
     printf("[4] Rentabilidade geral\n");
+    printf("[5] Ordernar carteira por rentabilidade\n");
+    printf("[6] Simulador educativo\n");
+    printf("[7] Relatório final\n");
     printf("[0] Salvar e sair\n\n");
 }
 
@@ -138,7 +141,7 @@ int lerOpcao() {
     
 	lerTexto("Opção: ", entrada, sizeof(entrada));
 	
-	if (sscanf(entrada, "%d %c", &valor, &extra) == 1 && valor >= 0 && valor <= 4) {
+	if (sscanf(entrada, "%d %c", &valor, &extra) == 1 && valor >= 0 && valor <= 7) {
         return valor;
     }
     
