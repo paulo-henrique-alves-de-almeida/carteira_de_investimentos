@@ -211,6 +211,9 @@ Escolha uma opção do menu digitando o número correspondente e pressionando `E
 [2] Listar ativos
 [3] Valor total da carteira
 [4] Rentabilidade geral
+[5] Ordernar carteira por rentabilidade
+[6] Simulador educativo
+[7] Relatório final
 [0] Salvar e sair
 
 Opção: 1
@@ -222,7 +225,7 @@ Categoria: Ação
 Quantidade: 100
 Preço de compra por unidade: 28.00
 Preço atual por unidade: 31.50
-Carteira salva em data/carteira.txt.
+
 Ativo cadastrado com sucesso!
 ```
 
